@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kavish Vora | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+            </div>
+        </label>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1 data-aos="fade-up" data-aos-duration="1000" class="glitch" data-text="Kavish Vora">Kavish Vora</h1>
+                <p data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+                  Learner | Student | <span class="highlight">IIIT Hyderabad</span>
+                </p>
+            </div>
+        </div>
+        <div class="mouse-scroll-cont">
+            <a href="#about">
+                <div class="mouse"></div>
+            </a>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2 data-aos="fade-up" data-aos-duration="1000">About Me</h2>
+            <div class="about-content">
+                <div class="about-image" data-aos="fade-right" data-aos-duration="1200">
+                    <div class="profile-pic">
+                        <img src="im/my_photo.jpeg" alt="Kavish Vora">
+                    </div>
+                </div>
+                <div class="about-text" data-aos="fade-left" data-aos-duration="1200">
+                    <p>Hello! I'm Kavish Vora, a tech and pop culture enthusiast who likes <span class="easter-egg" id="invincible-ref">hidden references.<span class="tooltip">"Going outside is highly overrated."</span></span> As a student at IIIT Hyderabad, I'm on a journey to expand my knowledge while maintaining my curiosity for all things tech. (If you look closely, you might discover some surprises scattered throughout this page...)</p>
+                    
+                    <p>When I'm not buried in code or assignments, you can find me playing table tennis or exploring new TV shows. I believe in <span class="easter-egg" id="invincible-ref">continuous learning<span class="tooltip">"That's the neat part. You don't." - Omni-Man</span></span> and pushing my boundaries to grow both personally and professionally.</p>
+                    
+                    <a href="im/my_cv.pdf" target="_blank" class="btn">Download CV <i class="fas fa-download"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hometown">
+        <div class="container">
+            <h2 data-aos="fade-up" data-aos-duration="1000">My Hometown</h2>
+            <p data-aos="fade-up" data-aos-duration="1200" class="section-intro">A glimpse of Bhavnagar, where I grew up and call home.</p>
+            
+            <div class="hometown-gallery">
+                <div class="gallery-container" data-aos="fade-up" data-aos-duration="1200">
+                    <!-- First 4 images from your folder -->
+                    <div class="gallery-item">
+                        <img src="im/Blackbuck.jpg" alt="Blackbuck from Bhavnagar">
+                        <div class="overlay"><span>Blackbuck National Park, Bhavnagar</span></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="im/Palitana.jpg" alt="Palitana Temples">
+                        <div class="overlay"><span>Palitana Temples - A sacred Jain pilgrimage site</span></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="im/Takhteshwar-Temple-Banner.jpg" alt="Takhteshwar Temple">
+                        <div class="overlay"><span>Takhteshwar Temple - Spiritual landmark</span></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="im/victoria-park-the-lungs-of-bhavnagar.jpg" alt="Victoria Park">
+                        <div class="overlay"><span>Victoria Park - The lungs of Bhavnagar</span></div>
+                    </div>
+                    <!-- Easter egg Rick Roll image -->
+                    <div class="gallery-item rick-roll-trigger">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1jaGVzcy1raW5nIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjYiIHI9IjIiLz48cGF0aCBkPSJNOSAxMmgzLjVtM41IDB2NC41bTAgMGgtMTFtMCAwVjEybTctMnYyIi8+PHBhdGggZD0iTTkgNmg2Ii8+PHBhdGggZD0iTTEyIDE4dDAgNiIvPjwvc3ZnPg==" alt="Hidden Easter Egg">
+                        <div class="overlay"><span>Secret landmark - Click to discover</span></div>
+                    </div>
+                </div>
+                <div class="gallery-controls">
+                    <button id="prev-btn" class="gallery-control-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button id="next-btn" class="gallery-control-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2 data-aos="fade-up" data-aos-duration="1000">Education <span class="easter-egg" id="crazy-quote">for the mind<span class="tooltip">"I'm not insane. My mother had me tested." - Sheldon Cooper</span></span></h2>
+            <div class="timeline">
+                <!-- School - Class X -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-duration="1200">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Class X</h3>
+                        <h4>Naimisharanya School</h4>
+                        <p class="timeline-date">Percentage: 98%</p>
+                        <p>Completed secondary education with excellence in mathematics and sciences.</p>
+                    </div>
+                </div>
+                
+                <!-- School - Class XII -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-duration="1200">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Class XII</h3>
+                        <h4>Divya Jyot School</h4>
+                        <p class="timeline-date">Percentage: 88%</p>
+                        <p>Completed higher secondary education with focus on PCM (Physics, Chemistry, Mathematics).</p>
+                    </div>
+                </div>
+                
+                <!-- Achievements & Entrance Exams -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-duration="1200">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Achievements & Entrance Exams</h3>
+                        <ul class="achievements">
+                            <li>District Table Tennis Player</li>
+                            <li>JEE Mains Rank: 606</li>
+                            <li>JEE Advanced Rank: 3194</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 data-aos="fade-up" data-aos-duration="1000">Technical Skills <span class="easter-egg comic-panel">with great power...<span class="tooltip">With great power comes great responsibility - Uncle Ben</span></span></h2>
+            
+            <div class="skills-wrapper">
+                <div class="skill-card" data-aos="fade-up" data-aos-duration="1200">
+                    <div class="skill-header">
+                        <i class="fas fa-code"></i>
+                        <h3>Programming Languages</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+                    <div class="skill-header">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Web Technologies</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
+                    <div class="skill-header">
+                        <i class="fas fa-tools"></i>
+                        <h3>Tools & Others</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git & GitHub <span class="easter-egg" id="marvel-ref"><i class="fas fa-brain"></i><span class="tooltip">"I am inevitable" - Thanos</span></span></span>
+                        <span class="skill-tag">Bash</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">No-SQL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="text-analyzer">
+        <div class="container">
+            <h2 data-aos="fade-up" data-aos-duration="1000">Text Analyzer</h2>
+            <p data-aos="fade-up" data-aos-duration="1200" class="section-intro">Analyze text for linguistic patterns and statistics.</p>
+            
+            <div class="analyzer-container">
+                <div class="form-group" data-aos="fade-up" data-aos-duration="1200">
+                    <textarea id="analyzeTextInput" class="analyze-textarea" placeholder="Paste or type your text here (10,000+ words recommended)..." rows="10"></textarea>
+                </div>
+                
+                <div class="analyzer-controls" data-aos="fade-up" data-aos-duration="1200">
+                    <button id="analyzeBtn" class="btn">Analyze Text</button>
+                </div>
+                
+                <div id="analyzeResults" class="analyze-results" style="display: none;">
+                    <div class="result-section">
+                        <h3>Basic Text Statistics</h3>
+                        <div class="stats-container">
+                            <div class="stat-item">
+                                <div class="stat-label">Letters</div>
+                                <div id="letterCount" class="stat-value">0</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Words</div>
+                                <div id="wordCount" class="stat-value">0</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Spaces</div>
+                                <div id="spaceCount" class="stat-value">0</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Newlines</div>
+                                <div id="newlineCount" class="stat-value">0</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Special Symbols</div>
+                                <div id="specialCount" class="stat-value">0</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-section">
+                        <h3>Pronouns</h3>
+                        <div id="pronounsResults" class="result-grid"></div>
+                    </div>
+                    
+                    <div class="result-section">
+                        <h3>Prepositions</h3>
+                        <div id="prepositionsResults" class="result-grid"></div>
+                    </div>
+                    
+                    <div class="result-section">
+                        <h3>Indefinite Articles</h3>
+                        <div id="articlesResults" class="result-grid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 data-aos="fade-up" data-aos-duration="1000">Contact Me</h2>
+            <p data-aos="fade-up" data-aos-duration="1200" class="section-intro">Feel free to reach out! I'm always open to discussing new projects, creative ideas, or opportunities.</p>
+            
+            <div class="contact-container">
+                <div class="contact-info" data-aos="fade-right" data-aos-duration="1200">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Email</h3>
+                            <p><a href="mailto:kavishvora1808@gmail.com">kavishvora1808@gmail.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Phone</h3>
+                            <p>+91 9824936937</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Location</h3>
+                            <p>Hyderabad, Telangana</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Social</h3>
+                            <div class="social-icons">
+                                <a href="https://github.com/Parzival-07" target="_blank"><i class="fab fa-github"></i></a>
+                                <a href="https://www.linkedin.com/in/kavish-vora-509b4235a/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                                <a href="mailto:kavishvora1808@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container" data-aos="fade-left" data-aos-duration="1200">
+                    <form class="contact-form">
+                        <div class="form-header">
+                            <h3>Send a Message</h3>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-block">Send Message <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="bottom-text">
+        <div class="container">
+            <div class="bottom-text-content">
+                <div class="bottom-text-left">
+                    <p>&copy; 2025 Kavish Vora.</p>
+                </div>
+                <div class="bottom-text-center">
+                    <p>All Rights Reserved.</p>
+                </div>
+                <div class="bottom-text-right">
+                    <p><span class="easter-trigger" id="time-travel">Where we're going</span>, <span class="easter-egg" id="dc-ref">we don't need roads<span class="tooltip">"I'm Batman" - Batman</span></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="hidden-image" id="delorean-image">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1jYXIiPjxwYXRoIGQ9Ik01IDEzYTIgMiAwIDAgMC0yIDJ2M2EyIDIgMCAwIDAgMiAyaDFhMiAyIDAgMCAwIDItMnYtMWg4djFhMiAyIDAgMCAwIDIgMmgxYTIgMiAwIDAgMCAyLTJ2LTNhMiAyIDAgMCAwLTItMmgtMS41TDE0IDhhMiAyIDAgMCAwLTItMkg4YTIgMiAwIDAgMC0yIDJsLTEgNXoiLz48Y2lyY2xlIGN4PSI3IiBjeT0iMTciIHI9IjIiLz48Y2lyY2xlIGN4PSIxNyIgY3k9IjE3IiByPSIyIi8+PC9zdmc+" alt="Time Travel Machine" style="width: 100px; height: 100px;">
+        </div>
+    </div>
+
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <canvas id="matrixCanvas" class="matrix-canvas"></canvas>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
