@@ -750,7 +750,7 @@ section h2::after {
 
 /* Bottom text container */
 .bottom-text {
-    padding: 1rem 0; /* Reduced from 2rem to 1rem */
+    padding: 2rem 0; /* Reduced from 2rem to 1rem */
     margin-top: 0;
     position: relative;
      /* Match the background color of the main content */
@@ -1581,39 +1581,6 @@ body.konami-mode .cursor-follower {
     letter-spacing: 0.5px;
 }
 
-/* Matrix rain canvas */
-.matrix-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
-    opacity: 0;
-    transition: opacity 2s ease;
-    pointer-events: none;
-}
-
-.matrix-active .matrix-canvas {
-    opacity: 0.9;
-    z-index: 9998;
-}
-
-.matrix-active {
-    color: #0f0 !important;
-}
-
-.matrix-active::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 9997;
-}
-
 /* Special styling for the Rick Roll trigger */
 .rick-roll-trigger {
     position: relative;
@@ -1748,7 +1715,6 @@ body.scrolled .electric-background {
     }
 }
 
-/* Lightning flash effect */
 .lightning-flash {
     position: absolute;
     width: 150px;
@@ -1778,7 +1744,6 @@ body.scrolled .electric-background {
     }
 }
 
-/* Add to your style.css file */
 .aos-init[data-aos].aos-animate {
     transition-property: none;
 }

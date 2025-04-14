@@ -15,11 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
         behavior: 'auto' // Use 'auto' instead of 'smooth' for immediate scrolling
     });
     
-    // Fallback method - set scroll after a tiny delay
-    setTimeout(function() {
-        window.scrollTo(0, 0);
-    }, 0);
-    
     // Initialize AOS
     AOS.init({
         duration: 800,
@@ -284,32 +279,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // DeLorean time travel effect
-    /*
-    document.getElementById('time-travel').addEventListener('mouseenter', () => {
-        const trail = document.createElement('div');
-        trail.className = 'delorean-trail';
-        trail.style.width = '0';
-        trail.style.top = (Math.random() * window.innerHeight) + 'px';
-        trail.style.left = '0';
-        document.body.appendChild(trail);
-        
-        // Animate trail
-        setTimeout(() => {
-            trail.style.width = window.innerWidth + 'px';
-            trail.style.opacity = '0.8';
-        }, 10);
-        
-        // Remove trail
-        setTimeout(() => {
-            trail.style.opacity = '0';
-            setTimeout(() => {
-                trail.remove();
-            }, 500);
-        }, 700);
-    });
-    */
-
     // Konami code easter egg
     let konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
     let konamiPosition = 0;
@@ -461,71 +430,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Initialize the matrix canvas for the footer
-    const footerCanvas = document.getElementById('matrixCanvas');
-    const footerCtx = footerCanvas.getContext('2d');
-
-    // Set canvas dimensions
-    function resizeCanvas() {
-        footerCanvas.width = footerCanvas.parentElement.clientWidth;
-        footerCanvas.height = footerCanvas.parentElement.clientHeight;
-    }
-
-    // Call resize once at init and whenever window is resized
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-
-    // Matrix rain effect
-    function initMatrixRain() {
-        // Matrix rain characters
-        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
-        const charArray = characters.split('');
-        
-        const fontSize = 14;
-        const columns = footerCanvas.width / fontSize;
-        
-        // Array to track current position of each column
-        const drops = [];
-        for (let i = 0; i < columns; i++) {
-            drops[i] = 1;
-        }
-        
-        const drawMatrix = () => {
-            // Semi-transparent black to create fade effect
-            footerCtx.fillStyle = 'rgba(12, 20, 69, 0.1)'; // Dark blue background fade
-            footerCtx.fillRect(0, 0, footerCanvas.width, footerCanvas.height);
-            
-            footerCtx.fillStyle = '#96c8ff'; // Light blue characters
-            footerCtx.font = fontSize + 'px monospace';
-            
-            // Loop through drops
-            for (let i = 0; i < drops.length; i++) {
-                // Random character
-                const text = charArray[Math.floor(Math.random() * charArray.length)];
-                
-                // x = i*fontSize, y = value of drops[i]*fontSize
-                footerCtx.fillText(text, i * fontSize, drops[i] * fontSize);
-                
-                // After drawing character, increment y position
-                if (drops[i] * fontSize > footerCanvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                
-                drops[i]++;
-            }
-        };
-        
-        // Start animation
-        setInterval(drawMatrix, 33);
-    }
-
-    // Initialize the matrix effect
-    initMatrixRain();
-
     // Text analyzer functionality
     const analyzeTextInput = document.getElementById('analyzeTextInput');
     const analyzeBtn = document.getElementById('analyzeBtn');
-    const loadSampleTextBtn = document.getElementById('loadSampleTextBtn');
     const analyzeResults = document.getElementById('analyzeResults');
     
     if (analyzeBtn) {
@@ -678,26 +585,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'a': 0,
             'an': 0,
             
-            // Other determiners often functioning as articles
-            // 'any': 0,
-            // 'some': 0,
-            // 'many': 0,
-            // 'few': 0,
-            // 'several': 0,
-            // 'certain': 0,
-            // 'another': 0,
-            // 'each': 0,
-            // 'every': 0,
-            // 'either': 0,
-            // 'neither': 0,
-            // 'enough': 0,
-            // 'other': 0,
-            // 'such': 0,
-            // 'what': 0,
-            // 'whatever': 0,
-            // 'which': 0,
-            // 'whichever': 0,
-            // 'no': 0
+           
         };
         
         // Count occurrences of each article
@@ -738,161 +626,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // User interaction tracking functionality
-    function initUserInteractionTracking() {
-        // Track page view when the page loads
-        logInteraction('view', 'page', document.title);
-        
-        // Track all click events
-        document.addEventListener('click', function(e) {
-            // Get the clicked element
-            const target = e.target;
-            
-            // Determine the type of element clicked
-            let objectType = getElementType(target);
-            
-            // Log the interaction
-            logInteraction('click', objectType, getElementDescription(target));
-        });
-        
-        // Helper function to determine element type
-        function getElementType(element) {
-            // Check if it's a button
-            if (element.tagName === 'BUTTON' || element.closest('button')) {
-                return 'button';
-            }
-            
-            // Check if it's an input or form element
-            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA' || element.tagName === 'SELECT') {
-                return element.type || element.tagName.toLowerCase();
-            }
-            
-            // Check if it's an image
-            if (element.tagName === 'IMG' || element.closest('img')) {
-                return 'image';
-            }
-            
-            // Check if it's a link
-            if (element.tagName === 'A' || element.closest('a')) {
-                return 'link';
-            }
-            
-            // Check if it's a skill tag
-            if (element.classList.contains('skill-tag') || element.closest('.skill-tag')) {
-                return 'skill-tag';
-            }
-            
-            // Check if it's a social icon
-            if (element.classList.contains('fab') || element.closest('.social-icons')) {
-                return 'social-icon';
-            }
-            
-            // Check if it's an easter egg
-            if (element.classList.contains('easter-egg') || element.closest('.easter-egg')) {
-                return 'easter-egg';
-            }
-            
-            // Check if it's a gallery item
-            if (element.classList.contains('gallery-item') || element.closest('.gallery-item')) {
-                return 'gallery-item';
-            }
-            
-            // Check if it's the theme switch
-            if (element.classList.contains('theme-switch') || element.closest('.theme-switch')) {
-                return 'theme-switch';
-            }
-            
-            // Default to the tag name or 'element' if no specific type is determined
-            return element.tagName ? element.tagName.toLowerCase() : 'element';
-        }
-        
-        // Helper function to get a meaningful description of the element
-        function getElementDescription(element) {
-            // Try to get text content if it exists
-            const text = element.textContent ? element.textContent.trim().substring(0, 50) : '';
-            
-            // For images, use alt text or src
-            if (element.tagName === 'IMG') {
-                return element.alt || element.src.split('/').pop();
-            }
-            
-            // For links, use href
-            if (element.tagName === 'A') {
-                return text || element.href;
-            }
-            
-            // For inputs, use placeholder or name
-            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                return element.placeholder || element.name || element.id || element.type;
-            }
-            
-            // For buttons, use text content or id
-            if (element.tagName === 'BUTTON') {
-                return text || element.id || 'button';
-            }
-            
-            // For sections, use id or class
-            if (element.id && element.tagName === 'SECTION') {
-                return `section-${element.id}`;
-            }
-            
-            // For easter eggs, track which one was clicked
-            if (element.classList.contains('easter-egg') || element.closest('.easter-egg')) {
-                const easterEgg = element.classList.contains('easter-egg') ? element : element.closest('.easter-egg');
-                return `easter-egg-${easterEgg.id || 'unknown'}`;
-            }
-            
-            // Default to element tag name + text content or id
-            return (element.tagName || 'element').toLowerCase() + 
-                   (text ? `: "${text}"` : element.id ? `#${element.id}` : '');
-        }
-        
-        // Log interaction to console in required format
-        function logInteraction(eventType, objectType, description) {
-            const timestamp = new Date().toISOString();
-            console.log(`${timestamp}, ${eventType}, ${objectType}${description ? ` (${description})` : ''}`);
-        }
-        
-        // Track visibility changes (if user switches tabs)
-        document.addEventListener('visibilitychange', function() {
-            if (document.visibilityState === 'visible') {
-                logInteraction('view', 'page', 'returned to page');
-            } else {
-                logInteraction('view', 'page', 'left page');
-            }
-        });
-        
-        // Track scrolling to different sections (as views)
-        const sections = document.querySelectorAll('section');
-        
-        // Use Intersection Observer to detect when sections come into view
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    logInteraction('view', 'section', `section-${entry.target.id}`);
-                }
-            });
-        }, { threshold: 0.3 }); // Consider section "viewed" when 30% visible
-        
-        // Observe all sections
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-        
-        console.log('User interaction tracking initialized');
-    }
-
-    // Call the function when the document is ready
-    initUserInteractionTracking();
-
     // Rick Roll Easter Egg - improved version
     const rickRollTrigger = document.querySelector('.rick-roll-trigger');
     
     if (rickRollTrigger) {
-        console.log('Rick Roll trigger found:', rickRollTrigger);
         
         rickRollTrigger.addEventListener('click', function(e) {
-            console.log('Rick Roll triggered!');
             
             // Create audio element with Bazinga sound
             const bazingaSound = new Audio('https://www.myinstants.com/media/sounds/bazinga.mp3');
@@ -906,21 +645,18 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (playPromise !== undefined) {
                 playPromise.then(() => {
-                    console.log('Bazinga sound playing...');
                     
                     // After sound completes (about 1 second), redirect to Rick Roll
                     setTimeout(() => {
-                        console.log('Redirecting to Rick Roll...');
                         window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
                     }, 1000);
                 }).catch(error => {
-                    console.error('Error playing Bazinga sound:', error);
+                    
                     // If sound fails to play, still redirect
                     window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
                 });
             } else {
                 // Fallback for browsers where play() doesn't return a promise
-                console.log('Play promise not supported, using timeout');
                 setTimeout(() => {
                     window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
                 }, 1000);
@@ -1027,4 +763,20 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+    // Mobile Navigation Toggle
+    const navbar = document.querySelector('.navbar');
+    const navLinks = document.querySelector('.nav-links');
+    
+    // Create menu toggle button
+    const menuToggle = document.createElement('div');
+    menuToggle.className = 'menu-toggle';
+    menuToggle.innerHTML = `<span></span><span></span><span></span>`;
+    navbar.insertBefore(menuToggle, navLinks);
+    
+    // Add toggle functionality
+    menuToggle.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+    });
 });

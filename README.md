@@ -1,1 +1,0 @@
-# Parzival-07.github.io

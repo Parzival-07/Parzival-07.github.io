@@ -1,0 +1,73 @@
+/* Mobile Styles */
+@media only screen and (max-width: 768px) {
+    /* Navigation */
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .nav-links li {
+        margin: 10px 0;
+    }
+    
+    /* Main Sections */
+    .hero-section {
+        padding: 50px 20px;
+    }
+    
+    .about-section, .projects-section, .skills-section, .contact-section {
+        padding: 40px 20px;
+    }
+    
+    /* Projects Grid */
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Skills */
+    .skills-container {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    /* Contact Form */
+    .contact-form input, 
+    .contact-form textarea {
+        width: 100%;
+    }
+    
+    /* Footer */
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .social-links {
+        margin-top: 15px;
+    }
+    
+    /* General */
+    .container {
+        width: 100%;
+        padding: 0 15px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Small Mobile Devices */
+@media only screen and (max-width: 480px) {
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+}
