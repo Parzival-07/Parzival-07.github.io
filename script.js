@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
             themeSwitch.checked ? 'dark' : 'light');
     });
 
-    // Check for saved theme preference
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
         document.documentElement.setAttribute('data-theme', savedTheme);
@@ -779,4 +778,121 @@ document.addEventListener('DOMContentLoaded', function() {
         navLinks.classList.toggle('active');
         menuToggle.classList.toggle('active');
     });
+});
+// ... existing code ...
+
+// User Event Tracking Function - Final Version
+function initUserEventTracking() {
+    // Helper function to log events
+    function logUserEvent(eventType, objectType, additionalInfo = '') {
+        const timestamp = new Date().toISOString();
+        // Ensure objectType is never empty or undefined
+        const safeObjectType = objectType || 'element'; 
+        const logMessage = `${timestamp}, ${eventType}, ${safeObjectType}${additionalInfo ? ' (' + additionalInfo.trim() + ')' : ''}`;
+        console.log(logMessage);
+    }
+
+    // 1. Log initial page view
+    logUserEvent('view', 'page', 'initial load');
+
+    // 2. Add a single click listener to the document
+    document.addEventListener('click', function(e) {
+        const target = e.target;
+        let elementType = 'unknown'; // Default type
+        let additionalInfo = '';
+        let logViewEvent = false; // Flag to control view logging
+
+        // --- Identify Specific Required Elements ---
+
+        // CV Download Link
+        const cvLink = target.closest('a[href$=".pdf"], a[href*="my_cv"]');
+        if (cvLink) {
+            elementType = 'CV download link';
+            additionalInfo = cvLink.textContent || 'Download CV';
+            logViewEvent = true; // Log view for this specific interaction
+        }
+        // Profile Picture
+        else if (target.closest('.profile-pic img')) {
+            elementType = 'profile picture';
+            additionalInfo = target.alt || 'Kavish Vora';
+            logViewEvent = true;
+        }
+        // Birthplace Gallery Image
+        else if (target.closest('.gallery-item')) {
+            elementType = 'birthplace image';
+            additionalInfo = target.closest('.gallery-item').querySelector('.overlay span')?.textContent || 'Gallery Image';
+            logViewEvent = true;
+        }
+        // About Paragraph Text
+        else if (target.closest('#about p')) {
+            elementType = 'about paragraph';
+            additionalInfo = target.textContent.substring(0, 30).trim() + '...';
+            logViewEvent = true;
+        }
+        // Education Timeline Item
+        else if (target.closest('.timeline-item')) {
+            elementType = 'education item';
+            additionalInfo = target.closest('.timeline-item').querySelector('h3, h4')?.textContent || 'Education Detail';
+            logViewEvent = true;
+        }
+        // Technical Skill Tag
+        else if (target.closest('.skill-tag')) {
+            elementType = 'technical skill';
+            additionalInfo = target.textContent || 'Skill';
+            logViewEvent = true;
+        }
+         // Skill Card (as a fallback if not a specific tag)
+        else if (target.closest('.skill-card')) {
+            elementType = 'skill category';
+            additionalInfo = target.closest('.skill-card').querySelector('h3')?.textContent || 'Skill Section';
+            logViewEvent = true; // Log view for interacting with the card too
+        }
+
+        // --- Identify Generic Elements (if none of the above matched) ---
+        else if (elementType === 'unknown') { // Only check generics if not already identified
+            if (target.closest('button')) {
+                elementType = 'button';
+                additionalInfo = target.closest('button').textContent.trim();
+            } else if (target.closest('a')) {
+                elementType = 'link';
+                additionalInfo = target.closest('a').textContent.trim();
+            } else if (target.closest('input, textarea')) {
+                elementType = 'input field';
+                additionalInfo = target.placeholder || target.type || target.tagName.toLowerCase();
+            } else if (target.closest('img')) {
+                elementType = 'image';
+                additionalInfo = target.alt || 'Image';
+            } else if (target.closest('h1, h2, h3, h4, h5, h6')) {
+                elementType = 'heading';
+                additionalInfo = target.textContent.substring(0, 30).trim() + '...';
+            } else if (target.closest('p')) {
+                elementType = 'paragraph';
+                 additionalInfo = target.textContent.substring(0, 30).trim() + '...';
+            } else if (target.closest('section')) {
+                 elementType = 'section area';
+                 additionalInfo = target.closest('section').id || 'Unnamed Section';
+            }
+             // Add more generic checks if needed
+        }
+
+        // --- Log Events ---
+
+        // Log the 'view' event ONLY if the flag is set (for specific required elements)
+        if (logViewEvent) {
+            logUserEvent('view', elementType, additionalInfo);
+        }
+        // Otherwise (if it wasn't one of the specific interactions), log it as a 'click'.
+        else {
+            logUserEvent('click', elementType, additionalInfo);
+        }
+
+    }, true); // Use capture phase to potentially catch clicks on elements that stop propagation
+}
+
+// Make sure to call this function within your DOMContentLoaded listener
+document.addEventListener('DOMContentLoaded', function() {
+    // ... your existing code inside DOMContentLoaded ...
+
+    // Call the tracking function at the end
+    initUserEventTracking();
 });
