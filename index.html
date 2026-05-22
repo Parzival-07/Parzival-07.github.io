@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kavish Vora - Engineer</title>
+  <meta name="description" content="Kavish Vora. B.Tech CSE at IIIT Hyderabad. Building backend systems, distributed systems, and things that need to work together.">
+  <meta name="author" content="Kavish Vora">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%230a0a0a'/%3E%3Ctext x='50' y='68' text-anchor='middle' font-family='system-ui' font-weight='700' font-size='62' fill='%23c9f06b'%3EK%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- Apply has-js BEFORE first paint so clip-path is set before anything renders -->
+  <script>document.documentElement.classList.add('has-js')</script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <a href="#hero" class="nav-name">Kavish Vora</a>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ================================
+         Hero
+         ================================ -->
+    <section id="hero" class="hero">
+      <div class="container">
+        <h1 class="hero-name">Kavish<br>Vora</h1>
+        <p class="hero-subtitle">Solving problems through code, systems, and curiosity.</p>
+        <div class="hero-meta">
+          <span>B.Tech CSE · IIIT Hyderabad · 9.21 CGPA</span>
+          <div class="hero-scroll" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================
+         About
+         ================================ -->
+    <section id="about" class="section about">
+      <div class="container">
+        <h2 class="section-heading">About Me</h2>
+        <div class="about-content">
+          <p>I'm a Computer Science student at IIIT Hyderabad who likes understanding how things work beneath the surface - from distributed systems and neural networks to why simple ideas often become complicated at scale.</p>
+
+<p>I enjoy building things where multiple moving parts need to work together. Most of my projects involve exploring how systems interact, communicate, and behave when things don't go exactly as expected.</p>
+
+<p>When I'm not coding, I'm probably playing table tennis or watching and referencing pop culture.</p>
+
+<h3 class="about-subheading">Currently exploring</h3>
+
+<p>Right now I'm spending time understanding <em>agentic systems</em> - how LLMs interact with tools, memory, and external environments to get useful work done.</p>
+
+<p>I'm also exploring <em>neural networks</em> and a bit of <em>computer vision</em>, while continuing to dig into systems topics like consistency, fault tolerance, and distributed behavior.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================
+         Selected Work
+         ================================ -->
+    <section id="work" class="section work">
+      <div class="container">
+        <h2 class="section-heading">Selected Work</h2>
+
+        <!-- Project 01 -->
+        <article class="project" id="project-kg">
+          <div class="project-header">
+            <span class="project-index">01</span>
+            <a href="https://github.com/Parzival-07/Knowledge_Extraction" class="project-link" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </div>
+          <h3 class="project-title">AI Knowledge Graph Extraction from Videos</h3>
+          <div class="project-body">
+            <p>Educational videos in code-mixed languages - Hinglish, Telugu-English - are unsearchable and unstructured. I built an NLP pipeline that processes them through Whisper transcription and LLM-based entity extraction into structured, queryable knowledge graphs.</p>
+            <p class="project-challenge"><em>The hard part:</em> Existing NLP tools consistently break down on code-mixed content. The pipeline had to handle language boundaries that shift mid-sentence.</p>
+          </div>
+          <div class="project-stack">Python · Whisper · Gemini · NLP · NetworkX</div>
+        </article>
+
+        <hr class="divider">
+
+        <!-- Project 02 -->
+        <article class="project" id="project-langos">
+          <div class="project-header">
+            <span class="project-index">02</span>
+            <a href="https://github.com/Parzival-07/LangOS" class="project-link" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </div>
+          <h3 class="project-title">LangOS — Distributed Document Collaboration</h3>
+          <div class="project-body">
+            <p>Multiple clients need concurrent, consistent access to a shared file system. I designed a distributed architecture with a centralized Name Server routing requests across Storage Servers over TCP/IP.</p>
+            <p class="project-challenge"><em>The hard part:</em> Implementing locking and hash-based indexing that maintained consistency under concurrent writes without killing read performance.</p>
+          </div>
+          <div class="project-stack">C · TCP/IP · Sockets · Distributed Systems</div>
+        </article>
+
+        <hr class="divider">
+
+        <!-- Project 03 -->
+        <article class="project" id="project-xv6">
+          <div class="project-header">
+            <span class="project-index">03</span>
+            <a href="https://github.com/Parzival-07/Paging" class="project-link" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </div>
+          <h3 class="project-title">Xv6 Demand Paging &amp; Swapping</h3>
+          <div class="project-body">
+            <p>Xv6's default memory management wastes physical memory on unused pages. I implemented demand paging with lazy allocation and FIFO page replacement backed by disk swap.</p>
+            <p class="project-challenge"><em>The hard part:</em> Modifying OS internals - page tables, trap handlers, process lifecycle - without breaking existing functionality. Every change cascaded.</p>
+          </div>
+          <div class="project-stack">C · xv6 · Operating Systems</div>
+        </article>
+
+        <hr class="divider">
+
+        <!-- Project 04 -->
+        <article class="project" id="project-cshell">
+          <div class="project-header">
+            <span class="project-index">04</span>
+            <a href="https://github.com/Parzival-07/C_Shell" class="project-link" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </div>
+          <h3 class="project-title">C-Shell</h3>
+          <div class="project-body">
+            <p>A Unix shell built from scratch to understand how process management actually works at the syscall level. Supports piping, I/O redirection, background processes, and signal handling via fork/exec.</p>
+            <p class="project-challenge"><em>The hard part:</em> Getting process group management and signal propagation right. Ctrl+C should kill the foreground process, not the shell. Sounds simple until it isn't.</p>
+          </div>
+          <div class="project-stack">C · Linux API · Operating Systems</div>
+        </article>
+      </div>
+    </section>
+
+
+    <!-- ================================
+         Experience
+         ================================ -->
+    <section id="experience" class="section experience">
+      <div class="container">
+        <h2 class="section-heading">Experience</h2>
+        <article class="exp-entry">
+          <div class="exp-header">
+            <div>
+              <h3 class="exp-role">Freelance Backend Developer</h3>
+              <p class="exp-company">RBuy Smart Refill — sustainability startup incubated at AIC-IIITH</p>
+            </div>
+            <span class="exp-period">Jan – Apr 2026</span>
+          </div>
+          <div class="exp-body">
+            <p>Contributed in building the backend and admin dashboard. Automated WhatsApp customer outreach using cron jobs on GCP, built a React/Next.js admin panel with JWT authentication and role-based access, and integrated the WhatsApp Business API for production deployment.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================================
+         Technical Toolbox
+         ================================ -->
+    <section id="toolbox" class="section toolbox">
+      <div class="container">
+        <h2 class="section-heading">Technical Toolbox</h2>
+        <div class="toolbox-grid">
+          <div class="toolbox-group">
+            <h4 class="toolbox-label">Systems</h4>
+            <p>C · Linux · Distributed Systems · OS Internals</p>
+          </div>
+          <div class="toolbox-group">
+            <h4 class="toolbox-label">Backend</h4>
+            <p>Node.js · REST APIs · JWT · GCP</p>
+          </div>
+          <div class="toolbox-group">
+            <h4 class="toolbox-label">Frontend</h4>
+            <p>React · Next.js · HTML/CSS</p>
+          </div>
+          <div class="toolbox-group">
+            <h4 class="toolbox-label">Languages</h4>
+            <p>C · C++ · Python · JavaScript · SQL</p>
+          </div>
+          <div class="toolbox-group">
+            <h4 class="toolbox-label">Data &amp; Tools</h4>
+            <p>MySQL · MongoDB · Git · NetworkX</p>
+          </div>
+          <div class="toolbox-group">
+            <h4 class="toolbox-label">Cloud</h4>
+            <p>GCP · Vercel · Render</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================
+         Achievements
+         ================================ -->
+    <section id="achievements" class="section achievements">
+      <div class="container">
+        <h2 class="section-heading">Achievements</h2>
+        <div class="achievements-list">
+          <div class="achievement">
+            <span class="achievement-label">Dean's List</span>
+            <span class="achievement-detail">Top 15% of CSE · Spring 2025</span>
+          </div>
+          <div class="achievement">
+            <span class="achievement-label">JEE Main</span>
+            <span class="achievement-detail">AIR 606 · Top 0.03% of 1.4M</span>
+          </div>
+          <div class="achievement">
+            <span class="achievement-label">JEE Advanced</span>
+            <span class="achievement-detail">AIR 3194</span>
+          </div>
+          <div class="achievement">
+            <span class="achievement-label">Integration Bee</span>
+            <span class="achievement-detail">Winner · IIIT Hyderabad · Oct 2024</span>
+          </div>
+          <div class="achievement">
+            <span class="achievement-label">Codeforces</span>
+            <span class="achievement-detail">Specialist · 1490 · 300+ problems</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================
+         Contact
+         ================================ -->
+    <footer id="contact" class="section contact">
+      <div class="container">
+        <h2 class="contact-heading">Get in touch</h2>
+        <a href="mailto:kavishvora1808@gmail.com" class="contact-email" id="contact-email">kavishvora1808@gmail.com</a>
+        <div class="contact-links">
+          <a href="https://github.com/Parzival-07" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <!-- Update LinkedIn URL to your actual profile -->
+          <a href="https://www.linkedin.com/in/kavish-vora-a18949349" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>

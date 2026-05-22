@@ -1,0 +1,661 @@
+/* ========================================
+   Design System
+   ======================================== */
+
+:root {
+  --bg: #0a0a0a;
+  --bg-elevated: #111111;
+  --text-primary: #e8e6e3;
+  --text-secondary: #7a7a7a;
+  --accent: #c9f06b;
+  --border: #1a1a1a;
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --space-section: clamp(4rem, 8vw, 6rem);
+  --container-max: 1100px;
+  --container-padding: 2rem;
+}
+
+/* ========================================
+   Reset & Base
+   ======================================== */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* ========================================
+   Layout
+   ======================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.section {
+  padding: var(--space-section) 0;
+}
+
+/* ========================================
+   Navigation
+   ======================================== */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem var(--container-padding);
+  transition: background 400ms ease, border-color 400ms ease;
+  border-bottom: 1px solid transparent;
+}
+
+.nav.scrolled {
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom-color: var(--border);
+}
+
+.nav-name {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  transition: color 200ms ease;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 200ms ease;
+}
+
+.nav-links a:hover {
+  color: var(--text-primary);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ========================================
+   Hero
+   ======================================== */
+
+.hero {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  position: relative;
+}
+
+.hero .container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding-top: 28vh;
+}
+
+.hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 10vw, 7.5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  color: var(--text-primary);
+}
+
+.hero-subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(1.0625rem, 1.8vw, 1.375rem);
+  color: var(--text-secondary);
+  max-width: 480px;
+  margin-top: 1.75rem;
+  line-height: 1.55;
+}
+
+.hero-meta {
+  margin-top: auto;
+  padding-bottom: 3rem;
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.hero-scroll {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, transparent, var(--text-secondary));
+  opacity: 0.4;
+}
+
+/* ========================================
+   Section Headings
+   ======================================== */
+
+.section-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.625rem, 3.5vw, 2.25rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  color: var(--text-primary);
+}
+
+.section-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+  font-family: var(--font-body);
+}
+
+/* ========================================
+   Selected Work (Projects)
+   ======================================== */
+
+.work {
+  padding-bottom: calc(var(--space-section) * 0.5);
+}
+
+.project {
+  position: relative;
+  padding: clamp(2.5rem, 4vw, 3.5rem) 0;
+}
+
+/* ========================================
+   Global Cursor Glow — Motion System 3
+   Ambient light that follows the cursor
+   across the entire page
+   ======================================== */
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    600px circle at var(--cursor-x, 50%) var(--cursor-y, 50%),
+    rgba(201, 240, 107, 0.03),
+    transparent 40%
+  );
+  pointer-events: none;
+  z-index: 10000;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.project-index {
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: color 250ms ease;
+}
+
+.project:hover .project-index {
+  color: var(--accent);
+}
+
+.project-link {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  transition: color 200ms ease, transform 200ms ease;
+  display: inline-block;
+}
+
+.project:hover .project-link {
+  color: var(--accent);
+  transform: translateX(3px);
+}
+
+.project-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.project-body {
+  max-width: 660px;
+  margin-bottom: 1.25rem;
+}
+
+.project-body p {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  margin-bottom: 0.875rem;
+}
+
+.project-body p:last-child {
+  margin-bottom: 0;
+}
+
+.project-challenge {
+  color: var(--text-primary) !important;
+}
+
+.project-challenge em {
+  color: var(--accent);
+  font-style: normal;
+  font-weight: 500;
+}
+
+.project-stack {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.03em;
+  font-family: var(--font-body);
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+
+/* ========================================
+   Currently Exploring
+   ======================================== */
+
+.exploring-content {
+  max-width: 580px;
+}
+
+.exploring-content p {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  margin-bottom: 1rem;
+  line-height: 1.75;
+}
+
+.exploring-content p:last-child {
+  margin-bottom: 0;
+}
+
+.exploring-content em {
+  color: var(--text-primary);
+  font-style: normal;
+}
+
+/* ========================================
+   Experience
+   ======================================== */
+
+.exp-entry {
+  max-width: 720px;
+}
+
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 1.25rem;
+}
+
+.exp-role {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.exp-company {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+.exp-period {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  padding-top: 0.2rem;
+}
+
+.exp-body p {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+/* ========================================
+   Technical Toolbox
+   ======================================== */
+
+.toolbox-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem 3rem;
+}
+
+.toolbox-label {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  margin-bottom: 0.625rem;
+}
+
+.toolbox-group p {
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  line-height: 1.8;
+}
+
+/* ========================================
+   Achievements
+   ======================================== */
+
+.achievements-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 2rem 2.5rem;
+}
+
+.achievement-label {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  color: var(--accent);
+  margin-bottom: 0.375rem;
+}
+
+.achievement-detail {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ========================================
+   About
+   ======================================== */
+
+.about-content {
+  max-width: 560px;
+}
+
+.about-content p {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  margin-bottom: 1rem;
+  line-height: 1.75;
+}
+
+.about-content p:last-child {
+  margin-bottom: 0;
+}
+
+.about-subheading {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.about-content .about-subheading ~ p {
+  /* Currently Exploring paragraphs inherit .about-content p styles */
+}
+
+/* ========================================
+   Contact
+   ======================================== */
+
+.contact {
+  padding-bottom: 4rem;
+}
+
+.contact-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4.5vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+
+.contact-email {
+  font-size: clamp(1rem, 2vw, 1.375rem);
+  color: var(--accent);
+  display: inline-block;
+  margin-bottom: 2.5rem;
+  position: relative;
+  transition: opacity 200ms ease;
+}
+
+.contact-email::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.3;
+  transition: opacity 200ms ease;
+}
+
+.contact-email:hover::after {
+  opacity: 1;
+}
+
+.contact-links {
+  display: flex;
+  gap: 1.75rem;
+}
+
+.contact-links a {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  transition: color 200ms ease;
+  position: relative;
+}
+
+.contact-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 200ms ease;
+}
+
+.contact-links a:hover {
+  color: var(--text-primary);
+}
+
+.contact-links a:hover::after {
+  width: 100%;
+}
+
+/* Clip-reveal system removed — headings now appear instantly.
+   The .has-js class is still set for potential future progressive enhancements. */
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .has-js .reveal-text {
+    clip-path: none;
+  }
+
+  body::after {
+    display: none;
+  }
+}
+
+/* ========================================
+   Responsive — Tablet
+   ======================================== */
+
+@media (max-width: 900px) {
+  .toolbox-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ========================================
+   Responsive — Mobile
+   ======================================== */
+
+@media (max-width: 640px) {
+  :root {
+    --container-padding: 1.25rem;
+    --space-section: 5rem;
+  }
+
+  .hero .container {
+    padding-top: 22vh;
+  }
+
+  .hero-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+  }
+
+  .hero-scroll {
+    display: none;
+  }
+
+  .exp-header {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .exp-period {
+    order: -1;
+  }
+
+  .toolbox-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.75rem;
+  }
+
+  .achievements-list {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .contact-links {
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+
+  .project {
+    padding: 2rem 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .toolbox-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .achievements-list {
+    grid-template-columns: 1fr;
+  }
+}
